@@ -2,6 +2,9 @@ package com.consignment.dto;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Date;
 
 /**
@@ -9,14 +12,16 @@ import java.util.Date;
  *     <p>September 08,2020
  */
 @Data
-public class BaseDTO {
+public abstract class BaseDTO {
   private Long id;
 
-  private Date createdDate;
+  private LocalDateTime createdDate;
 
-  private Date modifiedDate;
+  private LocalDateTime modifiedDate;
 
   private String createdBy;
 
   private String modifiedBy;
+
+  private String textSearch;
 }

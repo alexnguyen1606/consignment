@@ -20,6 +20,11 @@ public class Users extends BaseEntity {
     @Column(unique = true)
     private String username;
     private String password;
-
+    private Boolean isActive;
+    private String email;
+    @Column(columnDefinition = "nvarchar(255)")
+    private String fullName;
+    @Column(columnDefinition = "varchar(500)")
+    private String avatar;
 
 }

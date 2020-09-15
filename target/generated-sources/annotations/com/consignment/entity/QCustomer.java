@@ -27,9 +27,9 @@ public class QCustomer extends EntityPathBase<Customer> {
     public final StringPath createdBy = _super.createdBy;
 
     //inherited
-    public final DateTimePath<java.util.Date> createdDate = _super.createdDate;
+    public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
-    public final StringPath dob = createString("dob");
+    public final DatePath<java.time.LocalDate> dob = createDate("dob", java.time.LocalDate.class);
 
     public final StringPath fullName = createString("fullName");
 
@@ -44,7 +44,9 @@ public class QCustomer extends EntityPathBase<Customer> {
     public final StringPath modifiedBy = _super.modifiedBy;
 
     //inherited
-    public final DateTimePath<java.util.Date> modifiedDate = _super.modifiedDate;
+    public final DateTimePath<java.time.LocalDateTime> modifiedDate = _super.modifiedDate;
+
+    public final StringPath numberIdentify = createString("numberIdentify");
 
     public QCustomer(String variable) {
         super(Customer.class, forVariable(variable));

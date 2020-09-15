@@ -21,20 +21,28 @@ public class QUsers extends EntityPathBase<Users> {
 
     public final QBaseEntity _super = new QBaseEntity(this);
 
+    public final StringPath avatar = createString("avatar");
+
     //inherited
     public final StringPath createdBy = _super.createdBy;
 
     //inherited
-    public final DateTimePath<java.util.Date> createdDate = _super.createdDate;
+    public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
+
+    public final StringPath email = createString("email");
+
+    public final StringPath fullName = createString("fullName");
 
     //inherited
     public final NumberPath<Long> id = _super.id;
+
+    public final BooleanPath isActive = createBoolean("isActive");
 
     //inherited
     public final StringPath modifiedBy = _super.modifiedBy;
 
     //inherited
-    public final DateTimePath<java.util.Date> modifiedDate = _super.modifiedDate;
+    public final DateTimePath<java.time.LocalDateTime> modifiedDate = _super.modifiedDate;
 
     public final StringPath password = createString("password");
 

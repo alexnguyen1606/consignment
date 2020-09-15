@@ -25,7 +25,7 @@ public class QUserRoleMapping extends EntityPathBase<UserRoleMapping> {
     public final StringPath createdBy = _super.createdBy;
 
     //inherited
-    public final DateTimePath<java.util.Date> createdDate = _super.createdDate;
+    public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
     //inherited
     public final NumberPath<Long> id = _super.id;
@@ -34,7 +34,7 @@ public class QUserRoleMapping extends EntityPathBase<UserRoleMapping> {
     public final StringPath modifiedBy = _super.modifiedBy;
 
     //inherited
-    public final DateTimePath<java.util.Date> modifiedDate = _super.modifiedDate;
+    public final DateTimePath<java.time.LocalDateTime> modifiedDate = _super.modifiedDate;
 
     public final NumberPath<Long> roleId = createNumber("roleId", Long.class);
 
