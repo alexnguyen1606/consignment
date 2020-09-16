@@ -93,7 +93,7 @@ public class UsersProcessor {
 
   @Transactional
   public void changePassword(UsersDTO usersDTO) throws UserException {
-    boolean check = !usersDTO.getPassword().equals(usersDTO.getPasswordRepeated());
+    boolean check = !usersDTO.getPasswordChange().equals(usersDTO.getPasswordRepeated());
     if (check) {
       throw new UserException("Mật khẩu không khớp");
     }

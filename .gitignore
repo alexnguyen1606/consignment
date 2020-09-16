@@ -22,3 +22,14 @@
 target/*
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+target/
+.idea
+*.iml
+.mvn
+logs/
+.sts4-cache
+logs/
+logs-backend-ui/
+logs-frontend-api/
+logs-backend-api/
+logs-frontend-ui/
