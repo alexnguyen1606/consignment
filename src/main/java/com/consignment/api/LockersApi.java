@@ -32,7 +32,7 @@ public class LockersApi {
 
   @PostMapping
   public ResponseEntity<ServiceResult> create(@Valid @RequestBody LockersDTO lockers) {
-    ServiceResult serviceResult = new ServiceResult();
+    ServiceResult serviceResult = new ServiceResult("Thêm thành công");
     try {
       processor.create(lockers);
     } catch (LockersException e) {
@@ -48,7 +48,7 @@ public class LockersApi {
 
   @PutMapping
   public ResponseEntity<ServiceResult> update(@Valid @RequestBody LockersDTO lockers) {
-    ServiceResult serviceResult = new ServiceResult();
+    ServiceResult serviceResult = new ServiceResult("Cập nhật thành công");
     try {
       processor.update(lockers);
     } catch (LockersException e) {
