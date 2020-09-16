@@ -117,4 +117,8 @@ public class BorrowedLockersProcessor {
     BorrowedLockers borrowedLockers = optional.get();
     return mapper.toDTO(borrowedLockers);
   }
+
+  public Long count(){
+    return service.count();
+  }
 }
