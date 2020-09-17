@@ -65,6 +65,7 @@ D:\java-web\ConsigmentProject\workspace\ConsignmentItem\src\main\java\com\consig
 D:\java-web\ConsigmentProject\workspace\ConsignmentItem\src\main\java\com\consignment\api\BorrowedLockersApi.java
 D:\java-web\ConsigmentProject\workspace\ConsignmentItem\src\main\java\com\consignment\service\RolesService.java
 D:\java-web\ConsigmentProject\workspace\ConsignmentItem\src\main\java\com\consignment\service\CustomerService.java
+D:\java-web\ConsigmentProject\workspace\ConsignmentItem\src\main\java\com\consignment\api\DashboardController.java
 D:\java-web\ConsigmentProject\workspace\ConsignmentItem\src\main\java\com\consignment\entity\Lockers.java
 D:\java-web\ConsigmentProject\workspace\ConsignmentItem\src\main\java\com\consignment\dto\LockersDTO.java
 D:\java-web\ConsigmentProject\workspace\ConsignmentItem\src\main\java\com\consignment\mapper\resolver\LoggingResolver.java

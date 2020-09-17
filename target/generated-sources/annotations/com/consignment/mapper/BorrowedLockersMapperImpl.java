@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-09-16T00:05:19+0700",
+    date = "2020-09-17T13:39:30+0700",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 1.8.0_221 (Oracle Corporation)"
 )
 @Component
@@ -19,43 +19,43 @@ public class BorrowedLockersMapperImpl implements BorrowedLockersMapper {
     private BorrowedLockersResolver borrowedLockersResolver;
 
     @Override
-    public BorrowedLockers toEntity(BorrowedLockersDTO borrowedLockersDTO) {
-        if ( borrowedLockersDTO == null ) {
+    public BorrowedLockers toEntity(BorrowedLockersDTO m) {
+        if ( m == null ) {
             return null;
         }
 
         BorrowedLockers borrowedLockers = new BorrowedLockers();
 
-        borrowedLockers.setId( borrowedLockersDTO.getId() );
-        borrowedLockers.setCreatedDate( borrowedLockersDTO.getCreatedDate() );
-        borrowedLockers.setModifiedDate( borrowedLockersDTO.getModifiedDate() );
-        borrowedLockers.setCreatedBy( borrowedLockersDTO.getCreatedBy() );
-        borrowedLockers.setModifiedBy( borrowedLockersDTO.getModifiedBy() );
-        borrowedLockers.setLockersId( borrowedLockersDTO.getLockersId() );
-        borrowedLockers.setNote( borrowedLockersDTO.getNote() );
-        borrowedLockers.setInsuranceCode( borrowedLockersDTO.getInsuranceCode() );
-        borrowedLockers.setCustomerId( borrowedLockersDTO.getCustomerId() );
+        borrowedLockers.setId( m.getId() );
+        borrowedLockers.setCreatedDate( m.getCreatedDate() );
+        borrowedLockers.setModifiedDate( m.getModifiedDate() );
+        borrowedLockers.setCreatedBy( m.getCreatedBy() );
+        borrowedLockers.setModifiedBy( m.getModifiedBy() );
+        borrowedLockers.setLockersId( m.getLockersId() );
+        borrowedLockers.setNote( m.getNote() );
+        borrowedLockers.setInsuranceCode( m.getInsuranceCode() );
+        borrowedLockers.setCustomerId( m.getCustomerId() );
 
         return borrowedLockers;
     }
 
     @Override
-    public BorrowedLockersDTO toDTO(BorrowedLockers borrowedLockers) {
-        if ( borrowedLockers == null ) {
+    public BorrowedLockersDTO toDTO(BorrowedLockers e) {
+        if ( e == null ) {
             return null;
         }
 
-        BorrowedLockersDTO borrowedLockersDTO = borrowedLockersResolver.resolve( borrowedLockers, BorrowedLockersDTO.class );
+        BorrowedLockersDTO borrowedLockersDTO = borrowedLockersResolver.resolve( e, BorrowedLockersDTO.class );
 
-        borrowedLockersDTO.setId( borrowedLockers.getId() );
-        borrowedLockersDTO.setCreatedDate( borrowedLockers.getCreatedDate() );
-        borrowedLockersDTO.setModifiedDate( borrowedLockers.getModifiedDate() );
-        borrowedLockersDTO.setCreatedBy( borrowedLockers.getCreatedBy() );
-        borrowedLockersDTO.setModifiedBy( borrowedLockers.getModifiedBy() );
-        borrowedLockersDTO.setLockersId( borrowedLockers.getLockersId() );
-        borrowedLockersDTO.setNote( borrowedLockers.getNote() );
-        borrowedLockersDTO.setInsuranceCode( borrowedLockers.getInsuranceCode() );
-        borrowedLockersDTO.setCustomerId( borrowedLockers.getCustomerId() );
+        borrowedLockersDTO.setId( e.getId() );
+        borrowedLockersDTO.setCreatedDate( e.getCreatedDate() );
+        borrowedLockersDTO.setModifiedDate( e.getModifiedDate() );
+        borrowedLockersDTO.setCreatedBy( e.getCreatedBy() );
+        borrowedLockersDTO.setModifiedBy( e.getModifiedBy() );
+        borrowedLockersDTO.setLockersId( e.getLockersId() );
+        borrowedLockersDTO.setNote( e.getNote() );
+        borrowedLockersDTO.setInsuranceCode( e.getInsuranceCode() );
+        borrowedLockersDTO.setCustomerId( e.getCustomerId() );
 
         return borrowedLockersDTO;
     }

@@ -13,6 +13,7 @@ com\consignment\common\ImageUtils.class
 com\consignment\config\CachingConfig.class
 com\consignment\repository\LockersRepository.class
 com\consignment\dto\LoggingDTO.class
+com\consignment\api\DashboardController.class
 com\consignment\api\TrackingLogApi.class
 com\consignment\security\SecurityApi.class
 com\consignment\service\UserRoleMappingService.class

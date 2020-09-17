@@ -17,6 +17,5 @@ public class LockersDTO extends BaseDTO {
   @NotNull @NotBlank private String code;
   private String description;
   private Boolean isActive;
-
-  private List<BorrowedLockersDTO> listBorrow = new ArrayList<>();
+  private Integer totalBorrowed;
 }

@@ -7,6 +7,7 @@ import com.consignment.mapper.RolesMapper;
 import com.consignment.service.RolesService;
 import lombok.AllArgsConstructor;
 import org.mapstruct.ObjectFactory;
+import org.mapstruct.TargetType;
 import org.springframework.stereotype.Component;
 
 /**
@@ -21,7 +22,7 @@ public class UserRoleMappingResolve {
     private RolesMapper rolesMapper;
 
     @ObjectFactory
-    private UserRoleMappingDTO resolve(UserRoleMapping userRoleMapping,Class<UserRoleMappingDTO> type){
+    private UserRoleMappingDTO resolve(UserRoleMapping userRoleMapping,@TargetType Class<UserRoleMappingDTO> type){
         UserRoleMappingDTO userRoleMappingDTO = new UserRoleMappingDTO();
         RolesDTO rolesDTO = rolesMapper.toDTO(rolesService.findById(userRoleMapping.getRoleId()).get());
         userRoleMappingDTO.setRole(rolesDTO);

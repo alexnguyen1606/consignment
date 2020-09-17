@@ -170,6 +170,9 @@ public class UsersProcessor {
               .or(Q.fullName.containsIgnoreCase(textSearch))
               .or(Q.email.containsIgnoreCase(textSearch)));
     }
+    if (usersDTO.getIsActive()!=null){
+      builder.and(Q.isActive.eq(usersDTO.getIsActive()));
+    }
     return builder;
   }
 

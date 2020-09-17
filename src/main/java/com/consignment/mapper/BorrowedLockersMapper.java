@@ -14,9 +14,5 @@ import org.springframework.stereotype.Component;
 @Mapper(uses = {BorrowedLockersResolver.class})
 @Component
 public interface BorrowedLockersMapper extends CommonMapper<BorrowedLockers, BorrowedLockersDTO> {
-    @Override
-    BorrowedLockers toEntity(BorrowedLockersDTO borrowedLockersDTO);
 
-    @Override
-    BorrowedLockersDTO toDTO(BorrowedLockers borrowedLockers);
 }

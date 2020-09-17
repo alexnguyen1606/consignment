@@ -10,8 +10,9 @@ import org.springframework.stereotype.Component;
  * @author:Nguyen Anh Tuan
  *     <p>September 12,2020
  */
-@Mapper(uses = LockersResolve.class)
+
 @Component
+@Mapper(uses = {LockersResolve.class})
 public interface LockersMapper extends CommonMapper<Lockers, LockersDTO> {
 
 }

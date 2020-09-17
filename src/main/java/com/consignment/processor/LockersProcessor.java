@@ -115,6 +115,9 @@ public class LockersProcessor {
       String textSearch = lockers.getTextSearch();
       builder.and(Q.name.containsIgnoreCase(textSearch).or(Q.code.containsIgnoreCase(textSearch)));
     }
+    if (lockers.getIsActive()!=null){
+      builder.and(Q.isActive.eq(lockers.getIsActive()));
+    }
     return builder;
   }
 

@@ -10,8 +10,9 @@ import org.springframework.stereotype.Component;
  * <p>
  * September 08,2020
  */
-@Mapper
+
 @Component
+@Mapper
 public interface UsersMapper extends CommonMapper<Users, UsersDTO> {
 
 }

@@ -13,4 +13,5 @@ import org.springframework.stereotype.Component;
 @Component
 @Mapper(uses = {LoggingResolver.class})
 public interface LoggingMapper extends CommonMapper<Logging, LoggingDTO> {
+
 }

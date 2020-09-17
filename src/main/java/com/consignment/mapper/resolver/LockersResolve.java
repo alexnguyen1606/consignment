@@ -8,6 +8,7 @@ import com.consignment.mapper.BorrowedLockersMapper;
 import com.consignment.service.BorrowedLockersService;
 import lombok.AllArgsConstructor;
 import org.mapstruct.ObjectFactory;
+import org.mapstruct.TargetType;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -25,10 +26,10 @@ public class LockersResolve {
     private BorrowedLockersMapper borrowedLockersMapper;
 
     @ObjectFactory
-    public LockersDTO resolve(Lockers lockers,Class<LockersDTO> type){
+    public LockersDTO resolve(Lockers lockers,@TargetType Class<LockersDTO> type){
         LockersDTO lockersDTO = new LockersDTO();
-        List<BorrowedLockersDTO> listBorrow = borrowedLockersService.findByLockersId(lockers.getId()).stream().map(borrowedLockersMapper::toDTO).collect(Collectors.toList());
-        lockersDTO.setListBorrow(listBorrow);
+        Integer totalBorrowed = borrowedLockersService.findByLockersId(lockers.getId()).size();
+        lockersDTO.setTotalBorrowed(totalBorrowed);
         return lockersDTO;
     }
 }
