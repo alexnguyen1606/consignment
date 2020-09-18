@@ -52,7 +52,7 @@ public class LoggingProcessor {
               .insuranceCode
               .containsIgnoreCase(textSearch)
               .or(customer.numberIdentify.containsIgnoreCase(textSearch))
-              .or(customer.fullName.containsIgnoreCase(textSearch));
+              .or(customer.fullName.containsIgnoreCase(textSearch)));
     }
     if (StringUtils.isNotBlank(loggingDTO.getType())) {
       builder.and(Q.type.eq(loggingDTO.getType()));
