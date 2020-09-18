@@ -7,7 +7,6 @@ import com.consignment.mapper.LoggingMapper;
 import com.consignment.service.LoggingService;
 import com.querydsl.core.BooleanBuilder;
 import lombok.AllArgsConstructor;
-import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -53,6 +52,7 @@ public class LoggingProcessor {
               .insuranceCode
               .containsIgnoreCase(textSearch)
               .or(customer.numberIdentify.containsIgnoreCase(textSearch))
+              .or(customer.fullName.containsIgnoreCase(textSearch))
               .or(user.fullName.containsIgnoreCase(textSearch))
               .or(user.username.containsIgnoreCase(textSearch)));
     }
@@ -64,7 +64,6 @@ public class LoggingProcessor {
     }
     return builder;
   }
-
 
   public LoggingDTO findById(Long id) throws LockersException {
     Optional<Logging> optional = service.findById(id);
