@@ -1,5 +1,6 @@
 package com.consignment.entity;
 
+import com.consignment.common.Constant;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,9 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 /**
@@ -20,8 +23,7 @@ import java.util.Date;
  */
 
 @MappedSuperclass
-@Getter
-@Setter
+@Data
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity {
     @Id
@@ -29,7 +31,7 @@ public abstract class BaseEntity {
     private Long id;
 
     @CreatedDate
-    private LocalDateTime createdDate;
+    private LocalDateTime createdDate ;
 
 
     @LastModifiedDate
@@ -44,4 +46,6 @@ public abstract class BaseEntity {
     @LastModifiedBy
     @Column(columnDefinition = "nvarchar(255)")
     private String modifiedBy;
+
+
 }

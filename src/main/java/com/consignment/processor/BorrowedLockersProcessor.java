@@ -100,7 +100,8 @@ public class BorrowedLockersProcessor {
           Q.createdBy
               .containsIgnoreCase(textSearch)
               .or(customer.insuranceCode.contains(textSearch))
-              .or(customer.numberIdentify.contains(textSearch)));
+              .or(customer.numberIdentify.contains(textSearch)))
+            .or(customer.fullName.containsIgnoreCase(textSearch));
     }
     if (borrowedLockers.getLockersId() != null) {
       builder.and(Q.lockersId.eq(borrowedLockers.getLockersId()));
