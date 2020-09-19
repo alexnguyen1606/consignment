@@ -1,5 +1,6 @@
 package com.consignment.dto;
 
+import com.consignment.validation.UsernamePattern;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -13,7 +14,10 @@ import java.util.List;
  */
 @Data
 public class UsersDTO extends BaseDTO {
-  @NotNull @NotBlank private String username;
+//  @UsernamePattern(message = "Tên tài khoản không hợp lệ")
+  @NotNull
+  @NotBlank
+  private String username;
   private String password;
   private Boolean isActive;
   private String email;

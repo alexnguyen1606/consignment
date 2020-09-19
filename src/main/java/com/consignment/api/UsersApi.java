@@ -11,10 +11,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author:Nguyen Anh Tuan
@@ -162,8 +166,10 @@ public class UsersApi {
   }
 
   @PutMapping("/avatar")
-  public ResponseEntity<ServiceResult> updateAvatar(@RequestBody UsersDTO usersDTO){
+  public ResponseEntity<ServiceResult> updateAvatar(@RequestBody UsersDTO usersDTO) {
     usersProcessor.updateAvatar(usersDTO);
     return ResponseEntity.ok(new ServiceResult());
   }
+
+
 }
