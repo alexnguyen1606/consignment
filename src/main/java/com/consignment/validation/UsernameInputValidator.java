@@ -16,6 +16,6 @@ public class UsernameInputValidator implements ConstraintValidator<UsernamePatte
         if (StringUtils.isBlank(s)) {
             return false;
         }
-        return s.matches("[A-Za-z0-9]");
+        return s.matches("^[a-zA-Z0-9_]*$");
     }
 }

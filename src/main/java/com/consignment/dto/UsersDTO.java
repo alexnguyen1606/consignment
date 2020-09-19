@@ -14,9 +14,9 @@ import java.util.List;
  */
 @Data
 public class UsersDTO extends BaseDTO {
-//  @UsernamePattern(message = "Tên tài khoản không hợp lệ")
-  @NotNull
-  @NotBlank
+  @UsernamePattern(message = "Tên tài khoản không hợp lệ")
+//  @NotNull
+//  @NotBlank
   private String username;
   private String password;
   private Boolean isActive;

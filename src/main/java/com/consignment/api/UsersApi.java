@@ -11,14 +11,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author:Nguyen Anh Tuan
@@ -171,5 +168,19 @@ public class UsersApi {
     return ResponseEntity.ok(new ServiceResult());
   }
 
-
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  @ExceptionHandler(MethodArgumentNotValidException.class)
+  public ResponseEntity<ServiceResult> handleValidationExceptions(
+      MethodArgumentNotValidException ex) {
+    ServiceResult serviceResult = new ServiceResult();
+    StringBuilder errors = new StringBuilder();
+    ex.getBindingResult()
+        .getAllErrors()
+        .forEach(
+            (error) -> {
+              errors.append(error.getDefaultMessage()).append(" ");
+            });
+    serviceResult.setMessage(errors.toString());
+    return new ResponseEntity<>(serviceResult, HttpStatus.BAD_REQUEST);
+  }
 }
