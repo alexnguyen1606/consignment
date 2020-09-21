@@ -79,17 +79,17 @@ public class BorrowedLockersProcessor {
 
   public List<BorrowedLockersDTO> findAll(
       BorrowedLockersDTO borrowedLockersDTO, Pageable pageable) {
-    BooleanBuilder builder = commonBuilder(borrowedLockersDTO);
+    BooleanBuilder builder = buildCommonBLBuilder(borrowedLockersDTO);
     List<BorrowedLockers> data = service.findAll(builder, pageable);
     return data.stream().map(mapper::toDTO).collect(Collectors.toList());
   }
 
   public Long count(BorrowedLockersDTO borrowedLockers) {
-    BooleanBuilder builder = commonBuilder(borrowedLockers);
+    BooleanBuilder builder = buildCommonBLBuilder(borrowedLockers);
     return service.count(builder);
   }
 
-  protected BooleanBuilder commonBuilder(BorrowedLockersDTO borrowedLockers) {
+  protected BooleanBuilder buildCommonBLBuilder(BorrowedLockersDTO borrowedLockers) {
     BooleanBuilder builder = new BooleanBuilder();
     if (borrowedLockers == null) {
       return builder;
