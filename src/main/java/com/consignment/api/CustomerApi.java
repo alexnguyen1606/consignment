@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/consignment/customer")
-public class CustomerApi {
+public class CustomerApi extends ExceptionHandlerApi {
   private CustomerProcessor processor;
 
   @PostMapping

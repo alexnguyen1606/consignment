@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -59,6 +60,12 @@ public class LoggingProcessor {
     }
     if (loggingDTO.getLockerId() != null) {
       builder.and(Q.lockerId.eq(loggingDTO.getLockerId()));
+    }
+    if (loggingDTO.getStartTime()!=null){
+      builder.and(Q.createdDate.after(loggingDTO.getStartTime().atStartOfDay()));
+    }
+    if (loggingDTO.getEndTime()!= null){
+      builder.and(Q.createdDate.before(loggingDTO.getEndTime().atStartOfDay().plusDays(1)));
     }
     return builder;
   }

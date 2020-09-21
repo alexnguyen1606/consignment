@@ -26,7 +26,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/consignment/lockers")
-public class LockersApi {
+public class LockersApi extends ExceptionHandlerApi {
   private LockersProcessor processor;
   private final Logger logger = LogManager.getLogger(LockersApi.class);
 
@@ -119,6 +119,7 @@ public class LockersApi {
     serviceResult.setData(listData);
     return ResponseEntity.ok(serviceResult);
   }
+
   @GetMapping("/all")
   public ResponseEntity<ServiceResult> getAll() {
     ServiceResult serviceResult = new ServiceResult();
@@ -126,4 +127,14 @@ public class LockersApi {
     serviceResult.setData(listData);
     return ResponseEntity.ok(serviceResult);
   }
+
+  @GetMapping("/cabinet/{cabinetId}")
+  public ResponseEntity<ServiceResult> findByCabinetId(@PathVariable Long cabinetId){
+    ServiceResult serviceResult = new ServiceResult();
+    List<LockersDTO> listData = processor.findByCabinetId(cabinetId);
+    serviceResult.setData(listData);
+    return ResponseEntity.ok(serviceResult);
+  }
+
+
 }

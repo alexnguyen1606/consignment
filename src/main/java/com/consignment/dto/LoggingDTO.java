@@ -2,6 +2,9 @@ package com.consignment.dto;
 
 import lombok.Data;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 /**
  * @author:Nguyen Anh Tuan
  *     <p>September 12,2020
@@ -14,4 +17,7 @@ public class LoggingDTO extends BaseDTO {
   private UsersDTO user;
   private Long lockerId;
   private LockersDTO locker;
+  private LocalDate startTime;
+  private LocalDate endTime;
+
 }

@@ -106,7 +106,12 @@ public class BorrowedLockersProcessor {
     if (borrowedLockers.getLockersId() != null) {
       builder.and(Q.lockersId.eq(borrowedLockers.getLockersId()));
     }
-
+    if (borrowedLockers.getStartTime()!=null){
+      builder.and(Q.createdDate.after(borrowedLockers.getStartTime().atStartOfDay()));
+    }
+    if (borrowedLockers.getEndTime()!= null){
+      builder.and(Q.createdDate.before(borrowedLockers.getEndTime().atStartOfDay().plusDays(1)));
+    }
     return builder;
   }
 

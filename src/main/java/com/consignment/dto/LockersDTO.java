@@ -4,8 +4,6 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author:Nguyen Anh Tuan
@@ -18,4 +16,7 @@ public class LockersDTO extends BaseDTO {
   private String description;
   private Boolean isActive;
   private Integer totalBorrowed;
+  @NotNull(message = "Mã tủ đựng không được để trống")
+  private Long cabinetId;
+  private CabinetDTO cabinet;
 }

@@ -1,5 +1,6 @@
 package com.consignment.repository;
 
+import com.consignment.dto.LockersDTO;
 import com.querydsl.core.types.Predicate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -76,4 +77,6 @@ public abstract class CommonRepository<
     repo.saveAll(list);
     return list;
   }
+
+
 }

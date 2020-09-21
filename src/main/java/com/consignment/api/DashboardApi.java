@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/consignment/dashboard-info")
 @AllArgsConstructor
-public class DashboardController {
+public class DashboardApi {
     private BorrowedLockersProcessor borrowedLockersProcessor;
     @GetMapping
     public ResponseEntity<ServiceResult> getInfo(){

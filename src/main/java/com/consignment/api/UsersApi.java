@@ -24,7 +24,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/consignment/user")
-public class UsersApi {
+public class UsersApi extends ExceptionHandlerApi {
   private UsersProcessor usersProcessor;
 
   @PostMapping
@@ -166,21 +166,5 @@ public class UsersApi {
   public ResponseEntity<ServiceResult> updateAvatar(@RequestBody UsersDTO usersDTO) {
     usersProcessor.updateAvatar(usersDTO);
     return ResponseEntity.ok(new ServiceResult());
-  }
-
-  @ResponseStatus(HttpStatus.BAD_REQUEST)
-  @ExceptionHandler(MethodArgumentNotValidException.class)
-  public ResponseEntity<ServiceResult> handleValidationExceptions(
-      MethodArgumentNotValidException ex) {
-    ServiceResult serviceResult = new ServiceResult();
-    StringBuilder errors = new StringBuilder();
-    ex.getBindingResult()
-        .getAllErrors()
-        .forEach(
-            (error) -> {
-              errors.append(error.getDefaultMessage()).append(" ");
-            });
-    serviceResult.setMessage(errors.toString());
-    return new ResponseEntity<>(serviceResult, HttpStatus.BAD_REQUEST);
   }
 }

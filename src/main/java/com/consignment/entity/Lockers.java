@@ -25,5 +25,8 @@ public class Lockers extends BaseEntity {
   private String description;
 
   private Integer limit;
+
   private Boolean isActive = true;
+
+  private Long cabinetId;
 }

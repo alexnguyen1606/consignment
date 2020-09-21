@@ -115,7 +115,7 @@ public class LockersProcessor {
       String textSearch = lockers.getTextSearch();
       builder.and(Q.name.containsIgnoreCase(textSearch).or(Q.code.containsIgnoreCase(textSearch)));
     }
-    if (lockers.getIsActive()!=null){
+    if (lockers.getIsActive() != null) {
       builder.and(Q.isActive.eq(lockers.getIsActive()));
     }
     return builder;
@@ -127,5 +127,11 @@ public class LockersProcessor {
       throw new LockersException("Không tìm thấy hộp");
     }
     return mapper.toDTO(optional.get());
+  }
+
+  public List<LockersDTO> findByCabinetId(Long cabinetId) {
+    return service.findByCabinetIdAndStatus(cabinetId, true).stream()
+        .map(mapper::toDTO)
+        .collect(Collectors.toList());
   }
 }

@@ -1,7 +1,6 @@
 package com.consignment.api;
 
 import com.consignment.dto.BorrowedLockersDTO;
-import com.consignment.dto.LockersDTO;
 import com.consignment.dto.ServiceResult;
 import com.consignment.exception.BorrowedLockersException;
 import com.consignment.processor.BorrowedLockersProcessor;
@@ -25,7 +24,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/consignment/borrowed-lockers")
-public class BorrowedLockersApi {
+public class BorrowedLockersApi extends ExceptionHandlerApi {
   private BorrowedLockersProcessor processor;
   private final Logger logger = LogManager.getLogger(BorrowedLockersApi.class);
 
@@ -42,20 +41,20 @@ public class BorrowedLockersApi {
     } catch (DataIntegrityViolationException dataException) {
       logger.warn(dataException.getMessage());
       serviceResult.setMessage("Mã bảo hiểm hoặc sô thẻ căn cước đã được sử dụng");
-      return new ResponseEntity<>(serviceResult,HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<>(serviceResult, HttpStatus.BAD_REQUEST);
     }
     return ResponseEntity.ok(serviceResult);
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<ServiceResult> findById(@PathVariable Long id){
+  public ResponseEntity<ServiceResult> findById(@PathVariable Long id) {
     ServiceResult serviceResult = new ServiceResult();
     try {
       BorrowedLockersDTO borrowedLockersDTO = processor.findById(id);
       serviceResult.setData(borrowedLockersDTO);
     } catch (BorrowedLockersException e) {
       serviceResult.setMessage(e.getMessage());
-      return new ResponseEntity<>(serviceResult,HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<>(serviceResult, HttpStatus.BAD_REQUEST);
     }
     return ResponseEntity.ok(serviceResult);
   }
@@ -85,4 +84,6 @@ public class BorrowedLockersApi {
     }
     return ResponseEntity.ok(serviceResult);
   }
+
+
 }

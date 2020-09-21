@@ -12,4 +12,5 @@ public class Constant {
     public static final String CHECK_OUT = "CHECK_OUT";
     public static  final String TIME_ZONE="Asia/Ho_Chi_Minh";
     public static final ZoneId zoneId =  ZoneId.of(Constant.TIME_ZONE);
+    public static final Integer ENABLE= 1;
 }

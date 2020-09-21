@@ -13,4 +13,5 @@ import java.util.List;
 public interface LockersRepository
     extends JpaRepository<Lockers, Long>, QuerydslPredicateExecutor<Lockers> {
     List<Lockers> findByIsActive(Boolean status);
+    List<Lockers> findByCabinetIdAndIsActive(Long cabinetId,Boolean status);
 }

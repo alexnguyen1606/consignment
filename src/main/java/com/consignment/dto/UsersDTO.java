@@ -4,6 +4,7 @@ import com.consignment.validation.UsernamePattern;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -21,6 +22,8 @@ public class UsersDTO extends BaseDTO {
   private String fullName;
   private String passwordRepeated;
   private String passwordChange;
-  private List<String> roles = new ArrayList<>();
+  private List<String> roles = new LinkedList<>();
   private String avatar;
+  private JobTitleDTO jobTitle;
+  private Long jobTitleId;
 }
