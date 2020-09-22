@@ -17,6 +17,8 @@ import javax.persistence.Table;
 public class Cabinet extends BaseEntity {
     @Column(columnDefinition = "nvarchar(255)",unique = true)
     private String nameCabinet;
+    @Column(unique = true)
+    private String cabinetCode;
     @Column(columnDefinition = "nvarchar(500)")
     private String description;
     private Integer status;

@@ -26,4 +26,5 @@ public class UsersDTO extends BaseDTO {
   private String avatar;
   private JobTitleDTO jobTitle;
   private Long jobTitleId;
+  private String phoneNumber;
 }

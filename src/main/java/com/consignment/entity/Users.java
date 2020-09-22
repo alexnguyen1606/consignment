@@ -30,4 +30,6 @@ public class Users extends BaseEntity {
   private String avatar;
 
   private Long jobTitleId;
+
+  private String phoneNumber;
 }

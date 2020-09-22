@@ -21,10 +21,12 @@ public class UserResolver {
   private JobTitleMapper jobTitleMapper;
 
   @ObjectFactory
-  private UsersDTO resolve(Users users, @TargetType Class<UsersDTO> type) {
+  public UsersDTO resolve(Users users, @TargetType Class<UsersDTO> type) {
     UsersDTO usersDTO = new UsersDTO();
-    JobTitleDTO jobTitle =
-        jobTitleMapper.toDTO(jobTitleService.findById(users.getJobTitleId()).get());
+    JobTitleDTO jobTitle = new JobTitleDTO();
+    if (users.getJobTitleId() != null) {
+      jobTitle = jobTitleMapper.toDTO(jobTitleService.findById(users.getJobTitleId()).get());
+    }
     usersDTO.setJobTitle(jobTitle);
     return usersDTO;
   }

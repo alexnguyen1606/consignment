@@ -20,5 +20,7 @@ public class JobTitle extends BaseEntity {
     private Integer status;
     @Column(columnDefinition = "nvarchar(500)")
     private String description;
+    @Column(unique = true)
+    private String jobTitleCode;
 
 }

@@ -11,5 +11,6 @@ import lombok.Data;
 public class JobTitleDTO extends BaseDTO {
     private String name;
     private Integer status;
+    private String jobTitleCode;
     private String description;
 }

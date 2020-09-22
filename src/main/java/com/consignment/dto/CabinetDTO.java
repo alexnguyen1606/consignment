@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class CabinetDTO extends BaseDTO {
   private String nameCabinet;
+  private String cabinetCode;
   private String description;
   private Integer status;
 }

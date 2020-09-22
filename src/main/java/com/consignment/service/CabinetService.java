@@ -6,6 +6,8 @@ import com.consignment.repository.CommonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @author:Nguyen Anh Tuan
  * <p>
@@ -16,5 +18,8 @@ import org.springframework.stereotype.Component;
 public class CabinetService extends CommonRepository<Cabinet, CabinetRepository> {
     public CabinetService(CabinetRepository repo) {
         super(repo);
+    }
+    public List<Cabinet> findByStatus(Integer status){
+        return repo.findByStatus(status);
     }
 }

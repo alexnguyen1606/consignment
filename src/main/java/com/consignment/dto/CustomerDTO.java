@@ -12,14 +12,13 @@ import javax.validation.constraints.NotNull;
 public class CustomerDTO extends BaseDTO {
 
   private String fullName;
-  @NotNull
-  private String insuranceCode;
+  @NotNull private String insuranceCode;
 
   private String dob;
-  @NotNull
-  private String numberIdentify;
+  @NotNull private String numberIdentify;
 
   private String address;
 
   private int gender;
+  private String phoneNumber;
 }

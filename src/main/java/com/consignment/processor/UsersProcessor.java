@@ -205,6 +205,7 @@ public class UsersProcessor {
     Users users = userService.findById(myUser.getId()).get();
     users.setFullName(usersDTO.getFullName());
     users.setEmail(usersDTO.getEmail());
+    users.setPhoneNumber(usersDTO.getPhoneNumber());
     userService.save(users);
   }
 
