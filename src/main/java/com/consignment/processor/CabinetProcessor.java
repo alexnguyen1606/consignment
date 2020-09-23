@@ -41,6 +41,8 @@ public class CabinetProcessor {
       throw new CabinetException("ID MUST NOT BE NULL");
     }
     Cabinet cabinet = mapper.toEntity(cabinetDTO);
+    Cabinet cabinetInDB = service.findById(cabinet.getId()).get();
+
     service.save(cabinet);
   }
 

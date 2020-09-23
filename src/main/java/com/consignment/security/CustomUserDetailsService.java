@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author:Nguyen Anh Tuan
@@ -33,10 +34,11 @@ public class CustomUserDetailsService implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    Users userEntity = userService.findByUsernameAndIsActive(username, true).get();
-    if (userEntity == null) {
+    Optional<Users> optional = userService.findByUsernameAndIsActive(username, true);
+    if (!optional.isPresent()) {
       throw new UsernameNotFoundException("User not found");
     }
+    Users userEntity = optional.get();
     List<Long> roleIds = userRoleMappingService.findRoleIdsByUserId(userEntity.getId());
     List<Roles> listRoles = rolesService.findByListId(roleIds);
     List<GrantedAuthority> authorities = new ArrayList<>();

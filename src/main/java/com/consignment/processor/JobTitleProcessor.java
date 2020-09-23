@@ -1,11 +1,13 @@
 package com.consignment.processor;
 
+import com.consignment.common.Constant;
 import com.consignment.dto.JobTitleDTO;
 import com.consignment.entity.JobTitle;
 import com.consignment.entity.QJobTitle;
 import com.consignment.exception.JobTitleException;
 import com.consignment.mapper.JobTitleMapper;
 import com.consignment.service.JobTitleService;
+import com.consignment.service.UserService;
 import com.querydsl.core.BooleanBuilder;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
 public class JobTitleProcessor {
   private JobTitleService service;
   private JobTitleMapper mapper;
+  private UserService userService;
   private final QJobTitle Q = QJobTitle.jobTitle;
 
   public void create(JobTitleDTO jobTitleDTO) throws JobTitleException {
@@ -40,6 +43,9 @@ public class JobTitleProcessor {
       throw new JobTitleException("ID MUST BE NULL");
     }
     JobTitle jobTitle = mapper.toEntity(jobTitleDTO);
+    if (jobTitle.getStatus()!= Constant.ENABLE){
+      userService.updateAllStatusByJob(false,jobTitle.getId());
+    }
     service.save(jobTitle);
   }
 
