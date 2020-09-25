@@ -28,4 +28,6 @@ public class BorrowedLockers extends BaseEntity {
 
   @Column(unique = true)
   private Long customerId;
+
+  private String phoneNumber;
 }

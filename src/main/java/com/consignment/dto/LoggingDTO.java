@@ -19,5 +19,6 @@ public class LoggingDTO extends BaseDTO {
   private LockersDTO locker;
   private LocalDate startTime;
   private LocalDate endTime;
+  private String phoneNumber;
 
 }

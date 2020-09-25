@@ -74,6 +74,7 @@ public class BorrowedLockersProcessor {
     logging.setUserId(myUser.getId());
     logging.setLockerId(borrowedLockers.getLockersId());
     logging.setCustomerId(borrowedLockers.getCustomerId());
+    logging.setPhoneNumber(borrowedLockers.getPhoneNumber());
     return logging;
   }
 

@@ -17,4 +17,5 @@ public class Logging extends BaseEntity {
   private Long customerId;
   private Long userId;
   private Long lockerId;
+  private String phoneNumber;
 }

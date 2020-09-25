@@ -32,4 +32,7 @@ public class BorrowedLockersDTO extends BaseDTO {
 
   private LocalDate endTime;
 
+  private String phoneNumber;
+
+
 }
